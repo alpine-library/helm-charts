@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: gogs
+spec:
+  replicas: 1
+  selector:
+    name: gogs
+  template:
+    metadata:
+      labels:
+        name: gogs
+    spec:
+      containers:
+        - name: gogs
+          image: gogs/gogs
+          ports:
+            - containerPort: 3000
+              name: web
+            - containerPort: 22
+              name: ssh
+          volumeMounts:
+            - mountPath: /data
+              name: data
+        - name: postgres
+          image: postgres
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: postgres
+          env:
+            - name: POSTGRES_USER
+              value: "gogs"
+            - name: POSTGRES_PASSWORD
+              value: "gogs"
+      volumes:
+        - name: data
+          hostPath:
+            path: /srv/gogs
+        - name: postgres
+          hostPath:
+            path: /srv/gogs-postgres

@@ -1,0 +1,8 @@
+name: drone.io
+home: http://drone.io/
+version: 0.2.1
+description: The drone Project.
+maintainers:
+  - Maxime FRANCK
+details:
+  This package deploys drone to kubernetes.

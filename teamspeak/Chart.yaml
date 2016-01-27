@@ -1,0 +1,8 @@
+name: teamspeak
+home: http://teamspeak.com/
+version: 0.2.1
+description: The teamspeak Project.
+maintainers:
+  - Maxime FRANCK
+details:
+  This package deploys teamspeak to kubernetes.

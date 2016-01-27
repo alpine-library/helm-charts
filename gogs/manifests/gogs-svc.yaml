@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gogs
+spec:
+  ports:
+    - port: 80
+      targetPort: 3000
+      name: web
+    - port: 22
+      name: ssh
+  selector:
+    name: gogs

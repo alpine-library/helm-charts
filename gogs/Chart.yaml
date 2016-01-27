@@ -1,0 +1,8 @@
+name: gogs
+home: http://none.com/
+version: 0.2.1
+description: The gogs Project.
+maintainers:
+  - Maxime FRANCK
+details:
+  This package deploys gogs to kubernetes.
