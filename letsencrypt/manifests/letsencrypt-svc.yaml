@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: letsencrypt
   labels:
-    name: letsencrypt
+    app: letsencrypt
 spec:
   ports:
   - name: http
