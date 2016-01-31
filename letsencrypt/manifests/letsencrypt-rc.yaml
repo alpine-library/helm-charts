@@ -1,0 +1,33 @@
+---
+kind: ReplicationController
+apiVersion: v1
+metadata:
+  name: letsencrypt-rc
+  labels:
+    name: letsencrypt
+    role: cert-app
+spec:
+  replicas: 1
+  selector:
+    app: letsencrypt
+    role: cert-app
+  template:
+    metadata:
+      name: letsencrypt-rc
+      labels:
+        name: letsencrypt
+        role: cert-app
+    spec:
+      containers:
+      - name: letsencrypt
+        image: ployst/letsencrypt:0.0.5
+        env:
+        - name: EMAIL
+          value: eko@eko.ovh mail@eko.ovh admin@eko.ovh
+        - name: DOMAINS
+          value: eko.ovh www.eko.ovh auth.eko.ovh admin.eko.ovh grafana.eko.ovh registry.eko.ovh ci.eko.ovh drone.eko.ovh dashboard.eko.ovh ggtv-web.eko.ovh blog.eko.ovh admin@eko.ovh
+        - name: RC_NAMES
+          value: gogs droneio web-frontend-nginx-lb
+        ports:
+        - name: http
+          containerPort: 80

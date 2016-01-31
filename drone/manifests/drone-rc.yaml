@@ -26,7 +26,7 @@ spec:
             - name: REMOTE_DRIVER
               value: gogs
             - name: REMOTE_CONFIG
-              value: http://gogs.default?open=false
+              value: http://git.eko.ovh/?open=false
           ports:
             - containerPort: 80
               protocol: TCP

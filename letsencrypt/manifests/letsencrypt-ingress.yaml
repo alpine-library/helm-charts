@@ -1,0 +1,78 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: web
+  namespace: default
+spec:
+  rules:
+  - host: eko.ovh
+    http:
+      paths:
+      - backend:
+          serviceName: letsencrypt
+          servicePort: 80
+        path: /.well-known/
+  - host: auth.eko.ovh
+    http:
+      paths:
+      - backend:
+          serviceName: letsencrypt
+          servicePort: 80
+        path: /.well-known/
+  - host: admin.eko.ovh
+    http:
+      paths:
+      - backend:
+          serviceName: letsencrypt
+          servicePort: 80
+        path: /.well-known/
+  - host: grafana.eko.ovh
+    http:
+      paths:
+      - backend:
+          serviceName: letsencrypt
+          servicePort: 80
+        path: /.well-known/
+  - host: registry.eko.ovh
+    http:
+      paths:
+      - backend:
+          serviceName: letsencrypt
+          servicePort: 80
+        path: /.well-known/
+  - host: ci.eko.ovh
+    http:
+      paths:
+      - backend:
+          serviceName: letsencrypt
+          servicePort: 80
+        path: /.well-known/
+  - host: drone.eko.ovh
+    http:
+      paths:
+      - backend:
+          serviceName: letsencrypt
+          servicePort: 80
+        path: /.well-known/
+  - host: dashboard.eko.ovh
+
+    http:
+      paths:
+      - backend:
+          serviceName: letsencrypt
+          servicePort: 80
+        path: /.well-known/
+  - host: blog.eko.ovh
+    http:
+      paths:
+      - backend:
+          serviceName: letsencrypt
+          servicePort: 80
+        path: /.well-known/
+  - host: ggtv-web.eko.ovh
+    http:
+      paths:
+      - backend:
+          serviceName: letsencrypt
+          servicePort: 80
+        path: /.well-known/
